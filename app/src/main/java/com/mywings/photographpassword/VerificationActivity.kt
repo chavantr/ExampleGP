@@ -1,16 +1,15 @@
 package com.mywings.photographpassword
 
 import android.graphics.Color
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.Snackbar
-import android.util.Log
+import android.support.v7.app.AppCompatActivity
+import android.util.DisplayMetrics
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_verification.*
-import android.util.DisplayMetrics
 
 
 class VerificationActivity : AppCompatActivity() {
@@ -36,11 +35,11 @@ class VerificationActivity : AppCompatActivity() {
 
             val params = FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
             val paramsEx = FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-            val paramsLine = FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT)
+
 
             val view = TextView(applicationContext)
             val viewEx = TextView(applicationContext)
-            val viewLine = TextView(applicationContext)
+
 
 
 
@@ -48,12 +47,11 @@ class VerificationActivity : AppCompatActivity() {
 
             viewEx.text = "7"
 
-            viewLine.text ="-----------------------------------------------"
 
             view.setTextColor(Color.BLACK)
             viewEx.setTextColor(Color.BLACK)
-            viewLine.setTextColor(Color.BLACK)
-            //viewLine.setBackgroundColor(Color.BLACK)
+
+
 
             params.leftMargin = pxToDp((flInner.left + v))
 
@@ -64,21 +62,16 @@ class VerificationActivity : AppCompatActivity() {
             paramsEx.topMargin = pxToDp((flOuter.top + clusterYE[i]))
 
 
-            paramsLine.leftMargin = pxToDp((flFormat.left + 0))
-            paramsLine.topMargin = pxToDp((flFormat.top + 0))
 
 
 
 
-            flOuter.addView(viewEx,paramsEx)
 
-            flFormat.addView(viewLine,paramsLine)
+            flOuter.addView(viewEx, paramsEx)
+
+
 
             flInner.addView(view, params)
-
-
-
-
 
 
         }
