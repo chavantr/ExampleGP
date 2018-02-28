@@ -22,7 +22,7 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
         setSupportActionBar(toolbar)
-
+        databaseHelper = DatabaseHelper(this, "graphicpass", null, 1)
         if (intent.hasExtra("email")) {
             user = databaseHelper.getUsers(intent.getStringExtra("email"))
             lblNameValue.text = user!!.name

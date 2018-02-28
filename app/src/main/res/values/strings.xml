@@ -18,7 +18,7 @@
         <item>Yellow(#FFFF00)</item>
         <item>Orange(#FFA500)</item>
         <item>Pink(#FFB6C1)</item>
-        <item>Purple(##800080)</item>
+        <item>Purple(#800080)</item>
         <item>Red(#FF0000)</item>
     </string-array>
     <string name="title_activity_dashboard">"Dashboard "</string>

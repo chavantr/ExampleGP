@@ -10,7 +10,6 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.TextView
 import com.mywings.photographpassword.database.DatabaseHelper
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_verification.*
 
 
@@ -30,6 +29,7 @@ class VerificationActivity : AppCompatActivity() {
 
     private lateinit var databaseHelper: DatabaseHelper
     private var user: User? = null
+    private var email: String? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,6 +39,7 @@ class VerificationActivity : AppCompatActivity() {
         databaseHelper = DatabaseHelper(this, "graphicpass", null, 1)
         if (intent.hasExtra("email")) {
             lblEmail.text = intent.getStringExtra("email")
+            email = intent.getStringExtra("email")
             user = databaseHelper.getUsers(intent.getStringExtra("email"))
         }
 
@@ -82,15 +83,15 @@ class VerificationActivity : AppCompatActivity() {
         }
 
         btnVerify.setOnClickListener {
+
             if (user!!.password.contentEquals(txtPassword.text.toString())) {
                 val intent = Intent(this@VerificationActivity, DashboardActivity::class.java)
-                intent.putExtra("email",intent.getStringExtra("email"))
+                intent.putExtra("email", email)
                 startActivity(intent)
             } else {
                 show("Enter correct password")
             }
         }
-
 
 
     }
