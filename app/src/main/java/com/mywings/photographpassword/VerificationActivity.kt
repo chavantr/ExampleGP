@@ -16,8 +16,11 @@ import android.util.DisplayMetrics
 class VerificationActivity : AppCompatActivity() {
 
 
-    val clusterX = arrayOf(5, 30, 60, 80, 95, 120, 150, 180)
-    val clusterY = arrayOf(5, 45, 70, 95, 110, 89, 130, 180)
+    val clusterX = arrayOf(25, 55, 80, 95, 75, 35, 15, 10)
+    val clusterXE = arrayOf(40, 115, 175, 190, 150, 70, 10, 5)
+    val clusterY = arrayOf(5, 5, 10, 50, 85, 90, 65, 30)
+    val clusterYE = arrayOf(10, 0, 20, 120, 185, 190, 150, 70)
+    val clusterLine = arrayOf(0, 0, 20, 120, 185, 190, 150, 70)
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,18 +35,50 @@ class VerificationActivity : AppCompatActivity() {
         for ((i, v) in clusterX.withIndex()) {
 
             val params = FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+            val paramsEx = FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+            val paramsLine = FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT)
 
             val view = TextView(applicationContext)
+            val viewEx = TextView(applicationContext)
+            val viewLine = TextView(applicationContext)
 
-            view.text = "50"
+
+
+            view.text = "5"
+
+            viewEx.text = "7"
+
+            viewLine.text ="-----------------------------------------------"
 
             view.setTextColor(Color.BLACK)
+            viewEx.setTextColor(Color.BLACK)
+            viewLine.setTextColor(Color.BLACK)
+            //viewLine.setBackgroundColor(Color.BLACK)
 
             params.leftMargin = pxToDp((flInner.left + v))
 
             params.topMargin = pxToDp((flInner.top + clusterY[i]))
 
+
+            paramsEx.leftMargin = pxToDp((flOuter.left + clusterXE[i]))
+            paramsEx.topMargin = pxToDp((flOuter.top + clusterYE[i]))
+
+
+            paramsLine.leftMargin = pxToDp((flFormat.left + 0))
+            paramsLine.topMargin = pxToDp((flFormat.top + 0))
+
+
+
+
+            flOuter.addView(viewEx,paramsEx)
+
+            flFormat.addView(viewLine,paramsLine)
+
             flInner.addView(view, params)
+
+
+
+
 
 
         }
