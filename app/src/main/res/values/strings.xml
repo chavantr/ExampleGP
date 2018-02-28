@@ -12,9 +12,14 @@
 
     <string-array name="colors">
         <item>Select color</item>
-        <item>Red(#FF0000)</item>
-        <item>Green(#00FF00)</item>
         <item>Blue(#0000FF)</item>
+        <item>Green(#00FF00)</item>
+        <item>Black(#000000)</item>
+        <item>Yellow(#FFFF00)</item>
+        <item>Orange(#FFA500)</item>
+        <item>Pink(#FFB6C1)</item>
+        <item>Purple(##800080)</item>
+        <item>Red(#FF0000)</item>
     </string-array>
     <string name="title_activity_dashboard">"Dashboard "</string>
 
@@ -30,4 +35,8 @@
     <string name="verify">Verify</string>
     <string name="chars">12345678abcdefgh</string>
     <string name="enter_otp_to_verify">Enter otp to verify</string>
+    <string name="name">Name :</string>
+    <string name="phone">Phone :</string>
+    <string name="email">Email :</string>
+    <string name="date_of_birth">Date of birth :</string>
 </resources>

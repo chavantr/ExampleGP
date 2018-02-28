@@ -7,16 +7,29 @@ import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import com.mywings.photographpassword.database.DatabaseHelper
 import kotlinx.android.synthetic.main.activity_dashboard.*
 import kotlinx.android.synthetic.main.app_bar_dashboard.*
+import kotlinx.android.synthetic.main.content_dashboard.*
 
 class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+
+
+    private lateinit var databaseHelper: DatabaseHelper
+    private var user: User? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
         setSupportActionBar(toolbar)
 
+        if (intent.hasExtra("email")) {
+            user = databaseHelper.getUsers(intent.getStringExtra("email"))
+            lblNameValue.text = user!!.name
+            lblEmailValue.text = user!!.email
+            lblPhoneValue.text = user!!.phone
+            lblDobValue.text = user!!.dob
+        }
 
 
         val toggle = ActionBarDrawerToggle(

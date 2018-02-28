@@ -18,19 +18,19 @@
 
 
     <RelativeLayout
+        android:id="@+id/rlFlow"
         android:layout_width="240dp"
         android:layout_height="240dp"
         android:layout_gravity="center"
-        android:layout_margin="5dp"
-        android:background="@drawable/i1">
+        android:background="@drawable/i1"
+        android:padding="7dp">
 
 
         <FrameLayout
             android:id="@+id/flOuter"
-            android:layout_margin="12dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
+            android:layout_height="match_parent"
+            android:layout_margin="12dp">
 
 
         </FrameLayout>
@@ -44,16 +44,7 @@
             android:layout_centerInParent="true">
 
 
-
-
-
         </FrameLayout>
-
-
-
-
-
-
 
 
     </RelativeLayout>
@@ -120,7 +111,9 @@
         <android.support.design.widget.TextInputEditText
             android:id="@+id/txtPassword"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:inputType="textPassword" />
+
 
     </android.support.design.widget.TextInputLayout>
 
