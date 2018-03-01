@@ -102,6 +102,7 @@ class VerificationActivity : AppCompatActivity() {
 
         btnOuterOrbit.setOnClickListener {
 
+
         }
 
 
