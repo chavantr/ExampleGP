@@ -94,6 +94,17 @@ class VerificationActivity : AppCompatActivity() {
         }
 
 
+        btnInnerOrbit.setOnClickListener {
+
+
+
+        }
+
+        btnOuterOrbit.setOnClickListener {
+
+        }
+
+
     }
 
     private fun show(message: String) {
