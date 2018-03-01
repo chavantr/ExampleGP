@@ -30,6 +30,8 @@ class VerificationActivity : AppCompatActivity() {
     private lateinit var databaseHelper: DatabaseHelper
     private var user: User? = null
     private var email: String? = null
+    private var newPassword: String? = null
+    private var increment: Int = 0
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -95,31 +97,26 @@ class VerificationActivity : AppCompatActivity() {
 
 
         btnInnerOrbit.setOnClickListener {
-
-
-            if (txtPassword.text.toString().length <= user!!.password.length) {
-
-                val newPassword: String = user!!.password.substring(txtPassword.text.toString().length, txtPassword.text.toString().length + 1)
-
+            if (increment <= user!!.password.length) {
+                newPassword = user!!.password.substring(0, increment + 1)
                 txtPassword.setText(newPassword)
-
-
+            } else {
+                newPassword = newPassword + txtPassword.text.toString() + "h"
+                txtPassword.setText(newPassword)
             }
 
-
+            increment++
         }
 
         btnOuterOrbit.setOnClickListener {
-
-            if (txtPassword.text.toString().length <= user!!.password.length) {
-
-                val newPassword: String = user!!.password.substring(txtPassword.text.toString().length, txtPassword.text.toString().length + 1)
-
+            if (increment <= user!!.password.length) {
+                newPassword = user!!.password.substring(0, increment + 1)
                 txtPassword.setText(newPassword)
-
-
+            } else {
+                newPassword = txtPassword.text.toString().plus("g")
+                txtPassword.setText(newPassword)
             }
-
+            increment++
         }
 
 

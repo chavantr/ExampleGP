@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/ExampleGP.iml" filepath="$PROJECT_DIR$/ExampleGP.iml" />
       <module fileurl="file://F:\Sunsoft Projects\PhotographPassword\ExampleGP.iml" filepath="F:\Sunsoft Projects\PhotographPassword\ExampleGP.iml" />
-      <module fileurl="file://$PROJECT_DIR$/PhotographPassword.iml" filepath="$PROJECT_DIR$/PhotographPassword.iml" />
       <module fileurl="file://D:\GP\ExampleGP\PhotographPassword.iml" filepath="D:\GP\ExampleGP\PhotographPassword.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://D:\GP\ExampleGP\app\app.iml" filepath="D:\GP\ExampleGP\app\app.iml" />
     </modules>
   </component>
 </project>
