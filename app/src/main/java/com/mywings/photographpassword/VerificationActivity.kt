@@ -97,11 +97,28 @@ class VerificationActivity : AppCompatActivity() {
         btnInnerOrbit.setOnClickListener {
 
 
+            if (txtPassword.text.toString().length <= user!!.password.length) {
+
+                val newPassword: String = user!!.password.substring(txtPassword.text.toString().length, txtPassword.text.toString().length + 1)
+
+                txtPassword.setText(newPassword)
+
+
+            }
+
 
         }
 
         btnOuterOrbit.setOnClickListener {
 
+            if (txtPassword.text.toString().length <= user!!.password.length) {
+
+                val newPassword: String = user!!.password.substring(txtPassword.text.toString().length, txtPassword.text.toString().length + 1)
+
+                txtPassword.setText(newPassword)
+
+
+            }
 
         }
 
