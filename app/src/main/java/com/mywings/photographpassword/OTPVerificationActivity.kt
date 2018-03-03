@@ -4,10 +4,14 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
+import com.mywings.pay.models.Constants
 import kotlinx.android.synthetic.main.activity_otpverification.*
 
 
 class OTPVerificationActivity : AppCompatActivity() {
+
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -16,7 +20,7 @@ class OTPVerificationActivity : AppCompatActivity() {
 
         btnVerify.setOnClickListener {
 
-            if (txtOtp.text.isNotEmpty() && txtOtp.text.toString().contentEquals("000000")) {
+            if (txtOtp.text.isNotEmpty() && txtOtp.text.toString().contentEquals(""+Constants.CHECK)) {
                 val intent = Intent(this@OTPVerificationActivity, MainActivity::class.java)
                 startActivity(intent)
             } else {

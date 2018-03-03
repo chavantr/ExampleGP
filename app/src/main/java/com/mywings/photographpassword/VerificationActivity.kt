@@ -20,7 +20,7 @@ class VerificationActivity : AppCompatActivity() {
     val clusterXE = arrayOf(40, 115, 175, 200, 150, 70, 10, 5)
     val clusterY = arrayOf(5, 5, 10, 50, 85, 90, 65, 30)
     val clusterYE = arrayOf(10, 0, 20, 120, 185, 190, 150, 70)
-    val inner = arrayOf('3', '5', '7', '1', 'b', 'b', 'f', 'h')
+    val inner = arrayOf('3', '5', '7', '1', 'b', 'c', 'f', 'h')
     val outer = arrayOf('a', 'd', 'e', 'g', '2', '4', '6', '8')
 
 

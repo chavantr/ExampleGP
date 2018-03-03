@@ -8,9 +8,11 @@ import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.AdapterView
 import com.mywings.photographpassword.database.DatabaseHelper
+import com.mywings.photographpassword.model.SendOtp
 import kotlinx.android.synthetic.main.activity_registration.*
 
-class RegistrationActivity : AppCompatActivity() {
+class RegistrationActivity : AppCompatActivity(), OnVerifyOtpListener {
+
 
     private lateinit var database: DatabaseHelper
 
@@ -23,7 +25,11 @@ class RegistrationActivity : AppCompatActivity() {
                 val user = User(0, txtName.text.toString(), txtPhoneNumber.text.toString(), txtEmail.text.toString(),
                         txtDateOfBirth.text.toString(), txtPassword.text.toString(), spnColors.selectedItem.toString())
                 if (database.insertUser(user) > 0) {
-                    show("User created successfully")
+                    //show("User created successfully")
+
+                    val exeVerify = SendOtpAsync()
+                    exeVerify.setVerifyListener(this@RegistrationActivity, SendOtp("", txtPhoneNumber.text.toString()))
+
                 } else {
                     show("Something went wrong")
                 }
@@ -58,13 +64,23 @@ class RegistrationActivity : AppCompatActivity() {
         }
     }
 
-    private fun show(message: String) {
-        Snackbar.make(btnRegister, message, Snackbar.LENGTH_INDEFINITE).setAction("OK", {
+    override fun onVerificationComplete(otp: String, success: String) {
+        if (success.contentEquals("sent")) {
+            show("User created successfully","")
+        }else{
+            show("Not able send otp")
+        }
+    }
 
+    private fun show(message: String,extra:String) {
+        Snackbar.make(btnRegister, message, Snackbar.LENGTH_INDEFINITE).setAction("OK", {
             val intent = Intent(this@RegistrationActivity, OTPVerificationActivity::class.java)
             startActivity(intent)
-
         }).show()
+    }
+
+    private fun show(message: String) {
+        Snackbar.make(btnRegister, message, Snackbar.LENGTH_INDEFINITE).setAction("OK", {}).show()
     }
 
 }
